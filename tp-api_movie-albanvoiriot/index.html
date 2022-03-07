@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rechecher un film</title>
+	<link rel="stylesheet" type="text/css" href="css/api-movie.css">
+</head>
+<body>
+    <header id="header_img">
+        <img src="Images/fondEcranFilms.jpg">
+    </header>
+
+	<div id="conteneur">
+		<form id="form">
+		  <div class="element"><input id="searchMovie" class="input_searchMovie" type="text" placeholder="Rechecher un film..." /></div>
+	   </form>
+	</div>
+
+	<h1>Films :</h1><br><br>
+
+	<div id="films"></div>
+
+    <script type="text/javascript">
+
+    var searchMovie = document.getElementById("searchMovie");
+    const form = document.getElementById("form");
+
+    function AfficherFilms(url){
+         fetch(url).then(res => res.json()).then(function(data){
+         data.Search.forEach(element => {
+         var films = document.getElementById("films");
+         var element_movie = document.createElement('figure');
+         var a = document.createElement('a');
+         var image = document.createElement('img');
+         var titre = document.createElement('figcaption');
+
+         titre.innerHTML = element.Title;
+         a.href=`page-2.html?imdbID=${element.imdbID}&titre=${element.Title}&annee=${element.Year}&img=${element.Poster}`;
+         image.src = element.Poster;
+         element_movie.appendChild(a);
+         element_movie.appendChild(image);
+         a.appendChild(image);  // Ajout d'une image dans dans une balise <a>
+         element_movie.appendChild(titre);
+         films.appendChild(element_movie);
+      });
+   });
+}
+
+form.addEventListener("submit", (e) => {
+   e.preventDefault();
+
+   var films = document.getElementById("films");
+   films.innerHTML = '';
+
+   const searchWord = searchMovie.value;
+   const api_url = "http://www.omdbapi.com/?apikey=f6e256e1&s="+searchWord;
+
+    if (searchWord){
+      AfficherFilms(api_url);
+      searchMovie.value = "";
+   }
+
+});
+
+</script>
+
+</body>
+</html>

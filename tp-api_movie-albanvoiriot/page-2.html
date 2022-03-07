@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Recherche du film : </title>
+	<link rel="stylesheet" type="text/css" href="css/api-movie.css">
+</head>
+<body>
+
+    <header id="header_img">
+        <img src="Images/fondEcranFilms.jpg">
+    </header>
+
+    <script type="text/javascript">
+    	var str = document.location.href;
+		var url = new URL(str);
+
+		// Récupération des données dans l'URL
+		var imdbID = url.searchParams.get("imdbID");
+		var annee = url.searchParams.get("annee");
+		var titre = url.searchParams.get("titre");
+		var img = url.searchParams.get("img");
+
+		document.write(
+		`<div id="movieSelect">
+			<div class="movieSelect-element">
+				<img class="imgMovieSelect" src="${img}" />
+			</div>
+			<div class="movieSelect-element">
+				<p><b><u>imdbID</u></b> : ${imdbID}</p>
+				<p><b><u>Année</u></b> : ${annee}</p>
+				<p><b><u>Titre</u></b> : ${titre}</p>
+			</div>
+		</div>`
+		);
+
+    </script>
+
+</body>
+</html>

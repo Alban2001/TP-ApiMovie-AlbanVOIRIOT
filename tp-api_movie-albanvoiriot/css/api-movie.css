@@ -1,0 +1,83 @@
+body{
+  margin:  0;
+  padding: 0;
+  background-color: rgb(11, 29, 39);
+  color: white;
+}
+
+.header_img{
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+#conteneur{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.input_searchMovie{
+  width: 500px;
+  height: 65px;
+  font-size: 25px;
+  border: 5px outset grey;
+  border-radius: 10px;
+}
+
+#element_film{
+    padding: 20px;
+}
+
+#films{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#films figure{
+    width: 250px;
+    height: 320px;
+    margin: 19px 15px;
+    border: 3px solid red;
+}
+img{
+    width: 100%;
+    height: 89%;
+    object-fit: cover;
+}
+figcaption{
+    border: 3px solid red;
+    background-color: rgb(11, 29, 39);
+    font-size: 10px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+}
+
+#movieSelect{
+    padding: 100px 20px 100px 20px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border: 5px inset white;
+    font-family: Arial;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.movieSelect-element{
+    margin-right: 50px;
+}
+
+.movieSelect-element:nth-child(1){
+    float: left;
+}
+
+.imgMovieSelect{
+    width: 350px;
+    height: 350px;
+}
